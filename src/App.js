@@ -7,6 +7,7 @@ import Shopifystores from "./Pages/Shopifystores";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Sidenavmenubar from "./Components/Sidenavmenubar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./App.css";
 function App() {
   return (
     <>
