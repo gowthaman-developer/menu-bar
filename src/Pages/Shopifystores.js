@@ -23,7 +23,7 @@ export default function Shopify() {
                   fontSize="40px"
                   style={{ marginRight: "20px" }}
                 />
-                Shopify Stores
+                Shopify Stores{"  "}
                 <Button variant="info" className="appbtn">
                   Add New
                 </Button>
@@ -46,7 +46,14 @@ export default function Shopify() {
                   <td>8891</td>
                   <td>Secret</td>
                   <td>
-                    <Button variant="outline-secondary">Edit</Button>
+                    <Button variant="outline-secondary">
+                      <a
+                        href="/AddNew2"
+                        style={{ color: "grey", textDecoration: "none" }}
+                      >
+                        Edit
+                      </a>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -54,7 +61,14 @@ export default function Shopify() {
                   <td>8891</td>
                   <td>Secret</td>
                   <td>
-                    <Button variant="outline-secondary">Edit</Button>
+                    <Button variant="outline-secondary">
+                      <a
+                        href="/AddNew2"
+                        style={{ color: "grey", textDecoration: "none" }}
+                      >
+                        Edit
+                      </a>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -62,7 +76,14 @@ export default function Shopify() {
                   <td>8891</td>
                   <td>Secret</td>
                   <td>
-                    <Button variant="outline-secondary">Edit</Button>
+                    <Button variant="outline-secondary">
+                      <a
+                        href="/AddNew2"
+                        style={{ color: "grey", textDecoration: "none" }}
+                      >
+                        Edit
+                      </a>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -70,7 +91,14 @@ export default function Shopify() {
                   <td>8891</td>
                   <td>Secret</td>
                   <td>
-                    <Button variant="outline-secondary">Edit</Button>
+                    <Button variant="outline-secondary">
+                      <a
+                        href="/AddNew2"
+                        style={{ color: "grey", textDecoration: "none" }}
+                      >
+                        Edit
+                      </a>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -78,7 +106,14 @@ export default function Shopify() {
                   <td>8891</td>
                   <td>Secret</td>
                   <td>
-                    <Button variant="outline-secondary">Edit</Button>
+                    <Button variant="outline-secondary">
+                      <a
+                        href="/AddNew2"
+                        style={{ color: "grey", textDecoration: "none" }}
+                      >
+                        Edit
+                      </a>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -86,7 +121,14 @@ export default function Shopify() {
                   <td>8891</td>
                   <td>Secret</td>
                   <td>
-                    <Button variant="outline-secondary">Edit</Button>
+                    <Button variant="outline-secondary">
+                      <a
+                        href="/AddNew2"
+                        style={{ color: "grey", textDecoration: "none" }}
+                      >
+                        Edit
+                      </a>
+                    </Button>
                   </td>
                 </tr>
               </tbody>

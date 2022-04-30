@@ -1,12 +1,12 @@
 import React from "react";
 import { Row, Col, Button, Table } from "react-bootstrap";
 import { IoIosLock } from "react-icons/io";
-// import "../css/Authentication.css";
+//import "../css/Authentication.css";
 export default function Authentication() {
   return (
-    <div>
+    <div style={{ backgroundColor: "white" }}>
       <Row>
-        <Col sm={3}></Col>
+        <Col sm={3} style={{ backgroundColor: "white" }}></Col>
         <Col
           sm={9}
           style={{
@@ -15,7 +15,7 @@ export default function Authentication() {
             backgroundColor: "white",
           }}
         >
-          <div className="authentication">
+          <div className="authentication" style={{ backgroundColor: "white" }}>
             <h2 style={{ fontWeight: "normal" }}>
               <IoIosLock
                 color="#B6B6B6"
@@ -25,15 +25,22 @@ export default function Authentication() {
                   marginTop: "-7px",
                 }}
               />
-              Authentication Providers
+              Authentication Providers{" "}
               <Button variant="info" className="appbtn">
                 Add New
               </Button>
+              {/* <hr></hr> */}
             </h2>
 
             <hr></hr>
           </div>
-          <Table responsive="lg" style={{ marginTop: "25px", width: "970px" }}>
+          <Table
+            style={{
+              marginTop: "25px",
+              width: "970px",
+              backgroundColor: "white",
+            }}
+          >
             <thead>
               <tr>
                 <th>Name</th>
@@ -58,7 +65,14 @@ export default function Authentication() {
                 <td>True</td>
                 <td>State</td>
                 <td>
-                  <Button variant="outline-secondary">State</Button>
+                  <Button variant="outline-secondary">
+                    <a
+                      href="/AddNew3"
+                      style={{ color: "grey", textDecoration: "none" }}
+                    >
+                      Edit
+                    </a>
+                  </Button>
                 </td>
               </tr>
               <tr>
@@ -71,7 +85,14 @@ export default function Authentication() {
                 <td>True</td>
                 <td>State</td>
                 <td>
-                  <Button variant="outline-secondary">State</Button>
+                  <Button variant="outline-secondary">
+                    <a
+                      href="/AddNew3"
+                      style={{ color: "grey", textDecoration: "none" }}
+                    >
+                      Edit
+                    </a>
+                  </Button>
                 </td>
               </tr>
               <tr>
@@ -84,7 +105,14 @@ export default function Authentication() {
                 <td>True</td>
                 <td>State</td>
                 <td>
-                  <Button variant="outline-secondary">State</Button>
+                  <Button variant="outline-secondary">
+                    <a
+                      href="/AddNew3"
+                      style={{ color: "grey", textDecoration: "none" }}
+                    >
+                      Edit
+                    </a>
+                  </Button>
                 </td>
               </tr>
               <tr>
@@ -97,7 +125,14 @@ export default function Authentication() {
                 <td>True</td>
                 <td>State</td>
                 <td>
-                  <Button variant="outline-secondary">State</Button>
+                  <Button variant="outline-secondary">
+                    <a
+                      href="/AddNew3"
+                      style={{ color: "grey", textDecoration: "none" }}
+                    >
+                      Edit
+                    </a>
+                  </Button>
                 </td>
               </tr>
               <tr>
@@ -110,7 +145,14 @@ export default function Authentication() {
                 <td>True</td>
                 <td>State</td>
                 <td>
-                  <Button variant="outline-secondary">State</Button>
+                  <Button variant="outline-secondary">
+                    <a
+                      href="/AddNew3"
+                      style={{ color: "grey", textDecoration: "none" }}
+                    >
+                      Edit
+                    </a>
+                  </Button>
                 </td>
               </tr>
               <tr>
@@ -123,7 +165,14 @@ export default function Authentication() {
                 <td>True</td>
                 <td>State</td>
                 <td>
-                  <Button variant="outline-secondary">State</Button>
+                  <Button variant="outline-secondary">
+                    <a
+                      href="/AddNew3"
+                      style={{ color: "grey", textDecoration: "none" }}
+                    >
+                      Edit
+                    </a>
+                  </Button>
                 </td>
               </tr>
             </tbody>

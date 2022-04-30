@@ -38,9 +38,9 @@
 // };
 
 import React from "react";
-import { Row, Col, Container, Table, Button } from "react-bootstrap";
+import { Row, Col, Container, Table, Button, Form } from "react-bootstrap";
 // import Sidebar from "./Sidebar";
-// import "../css/Applications.css";
+// import "../js/Applications.js";
 export default function Applications() {
   return (
     <div>
@@ -50,7 +50,7 @@ export default function Applications() {
           <Col
             sm={9}
             style={{
-              marginTop: "-830px",
+              marginTop: "-800px",
               marginLeft: "-50px",
               backgroundColor: "white",
             }}
@@ -68,13 +68,13 @@ export default function Applications() {
                   src={require("file:///Users/gowthamganesan/Downloads/Group%20203.png")}
                   style={{ marginRight: "20px" }}
                 />
-                Applications
+                Applications{"  "}
                 <Button variant="info" className="appbtn">
                   Add New
                 </Button>
               </h2>
-              <hr></hr>
             </div>
+            <hr></hr>
             <Table
               responsive="lg"
               style={{ marginTop: "25px", width: "970px" }}
@@ -99,7 +99,14 @@ export default function Applications() {
                   <td>https://www.universalmusic.com</td>
                   <td>State</td>
                   <td>
-                    <Button variant="outline-secondary">State</Button>
+                    <Button variant="outline-secondary">
+                      <a
+                        href="/AddNew1"
+                        style={{ color: "grey", textDecoration: "none" }}
+                      >
+                        Edit
+                      </a>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -110,7 +117,14 @@ export default function Applications() {
                   <td>https://www.universalmusic.com</td>
                   <td>State</td>
                   <td>
-                    <Button variant="outline-secondary">State</Button>
+                    <Button variant="outline-secondary">
+                      <a
+                        href="/AddNew1"
+                        style={{ color: "grey", textDecoration: "none" }}
+                      >
+                        Edit
+                      </a>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -121,7 +135,14 @@ export default function Applications() {
                   <td>https://www.universalmusic.com</td>
                   <td>State</td>
                   <td>
-                    <Button variant="outline-secondary">State</Button>
+                    <Button variant="outline-secondary">
+                      <a
+                        href="/AddNew1"
+                        style={{ color: "grey", textDecoration: "none" }}
+                      >
+                        Edit
+                      </a>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -132,7 +153,14 @@ export default function Applications() {
                   <td>https://www.universalmusic.com</td>
                   <td>State</td>
                   <td>
-                    <Button variant="outline-secondary">State</Button>
+                    <Button variant="outline-secondary">
+                      <a
+                        href="/AddNew1"
+                        style={{ color: "grey", textDecoration: "none" }}
+                      >
+                        Edit
+                      </a>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -143,7 +171,14 @@ export default function Applications() {
                   <td>https://www.universalmusic.com</td>
                   <td>State</td>
                   <td>
-                    <Button variant="outline-secondary">State</Button>
+                    <Button variant="outline-secondary">
+                      <a
+                        href="/AddNew1"
+                        style={{ color: "grey", textDecoration: "none" }}
+                      >
+                        Edit
+                      </a>
+                    </Button>
                   </td>
                 </tr>
                 <tr>
@@ -154,7 +189,14 @@ export default function Applications() {
                   <td>https://www.universalmusic.com</td>
                   <td>State</td>
                   <td>
-                    <Button variant="outline-secondary">State</Button>
+                    <Button variant="outline-secondary">
+                      <a
+                        href="/AddNew1"
+                        style={{ color: "grey", textDecoration: "none" }}
+                      >
+                        Edit
+                      </a>
+                    </Button>
                   </td>
                 </tr>
               </tbody>

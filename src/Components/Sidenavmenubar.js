@@ -59,7 +59,7 @@ function sidenavmenubar() {
 
           <Accordion.Item eventKey="1">
             <Accordion.Header>
-              <Nav.Link>
+              <Nav.Link href="/Applications">
                 <IoIosApps />
                 Applications
               </Nav.Link>
@@ -69,7 +69,7 @@ function sidenavmenubar() {
                 <Nav.Link href="/Applications">All Application</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="#/action-2">Add New</Nav.Link>
+                <Nav.Link href="/AddNew1">Add New</Nav.Link>
               </Nav.Item>
             </Accordion.Body>
           </Accordion.Item>
@@ -93,7 +93,7 @@ function sidenavmenubar() {
           </Accordion.Item> */}
           <Accordion.Item eventKey="2">
             <Accordion.Header>
-              <Nav.Link>
+              <Nav.Link href="/Shopifystores">
                 <FaShopify />
                 Shopifystores
               </Nav.Link>
@@ -103,13 +103,13 @@ function sidenavmenubar() {
                 <Nav.Link href="/Shopifystores">All Shopifystores</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="#/action-2">Add New</Nav.Link>
+                <Nav.Link href="/AddNew2">Add New</Nav.Link>
               </Nav.Item>
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="3">
             <Accordion.Header>
-              <Nav.Link>
+              <Nav.Link href="/AuthenticationProvider">
                 <BiLogInCircle />
                 AuthenticationProvider
               </Nav.Link>
@@ -121,13 +121,13 @@ function sidenavmenubar() {
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="#/action-2">Add New</Nav.Link>
+                <Nav.Link href="/AddNew3">Add New</Nav.Link>
               </Nav.Item>
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="4">
             <Accordion.Header>
-              <Nav.Link>
+              <Nav.Link href="/Providers">
                 <AiOutlineLogout />
                 Providers
               </Nav.Link>
@@ -137,7 +137,7 @@ function sidenavmenubar() {
                 <Nav.Link href="/Providers">All Providers</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="#/action-2">Add New</Nav.Link>
+                <Nav.Link href="/AddNew4">Add New</Nav.Link>
               </Nav.Item>
             </Accordion.Body>
           </Accordion.Item>

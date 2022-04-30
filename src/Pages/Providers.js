@@ -1,29 +1,49 @@
 import React from "react";
 import { Row, Col, Button, Table } from "react-bootstrap";
-import { IoIosLock } from "react-icons/io";
+import { AiOutlineLogout } from "react-icons/ai";
 
 export default function Providers() {
   return (
     <div>
       <Row>
         <Col sm={3}></Col>
-        <Col sm={9} style={{ marginTop: "-790px", marginLeft: "-10px" }}>
-          <div className="providers" style={{ width: "970px" }}>
+        <Col
+          sm={9}
+          style={{
+            marginTop: "-800px",
+            marginLeft: "-50px",
+            backgroundColor: "white",
+          }}
+        >
+          <div
+            className="dash"
+            style={{
+              backgroundColor: "white",
+              marginLeft: "-11px",
+            }}
+          >
             <h2 style={{ fontWeight: "normal" }}>
-              <IoIosLock
+              <AiOutlineLogout
                 color="#B6B6B6"
                 fontSize="40px"
                 style={{ marginRight: "20px", marginTop: "-7px" }}
               />
-              Providers
+              Providers{" "}
               <Button variant="info" className="appbtn">
                 Add New
               </Button>
+              <hr></hr>
             </h2>
-
-            <hr></hr>
           </div>
-          <Table responsive="lg" style={{ marginTop: "25px", width: "970px" }}>
+
+          <Table
+            // responsive="lg"
+            style={{
+              marginTop: "25px",
+              width: "970px",
+              backgroundColor: "white",
+            }}
+          >
             <thead>
               <tr>
                 <th>Name</th>
@@ -38,7 +58,14 @@ export default function Providers() {
                 <td>8891</td>
                 <td>Secret</td>
                 <td>
-                  <Button variant="outline-secondary">Edit</Button>
+                  <Button variant="outline-secondary">
+                    <a
+                      href="/AddNew4"
+                      style={{ color: "grey", textDecoration: "none" }}
+                    >
+                      Edit
+                    </a>
+                  </Button>
                 </td>
               </tr>
               <tr>
@@ -46,7 +73,14 @@ export default function Providers() {
                 <td>8891</td>
                 <td>Secret</td>
                 <td>
-                  <Button variant="outline-secondary">Edit</Button>
+                  <Button variant="outline-secondary">
+                    <a
+                      href="/AddNew4"
+                      style={{ color: "grey", textDecoration: "none" }}
+                    >
+                      Edit
+                    </a>
+                  </Button>
                 </td>
               </tr>
               <tr>
@@ -54,7 +88,14 @@ export default function Providers() {
                 <td>8891</td>
                 <td>Secret</td>
                 <td>
-                  <Button variant="outline-secondary">Edit</Button>
+                  <Button variant="outline-secondary">
+                    <a
+                      href="/AddNew4"
+                      style={{ color: "grey", textDecoration: "none" }}
+                    >
+                      Edit
+                    </a>
+                  </Button>
                 </td>
               </tr>
               <tr>
@@ -62,7 +103,14 @@ export default function Providers() {
                 <td>8891</td>
                 <td>Secret</td>
                 <td>
-                  <Button variant="outline-secondary">Edit</Button>
+                  <Button variant="outline-secondary">
+                    <a
+                      href="/AddNew4"
+                      style={{ color: "grey", textDecoration: "none" }}
+                    >
+                      Edit
+                    </a>
+                  </Button>
                 </td>
               </tr>
               <tr>
@@ -70,7 +118,14 @@ export default function Providers() {
                 <td>8891</td>
                 <td>Secret</td>
                 <td>
-                  <Button variant="outline-secondary">Edit</Button>
+                  <Button variant="outline-secondary">
+                    <a
+                      href="/AddNew4"
+                      style={{ color: "grey", textDecoration: "none" }}
+                    >
+                      Edit
+                    </a>
+                  </Button>
                 </td>
               </tr>
               <tr>
@@ -78,7 +133,14 @@ export default function Providers() {
                 <td>8891</td>
                 <td>Secret</td>
                 <td>
-                  <Button variant="outline-secondary">Edit</Button>
+                  <Button variant="outline-secondary">
+                    <a
+                      href="/AddNew4"
+                      style={{ color: "grey", textDecoration: "none" }}
+                    >
+                      Edit
+                    </a>
+                  </Button>
                 </td>
               </tr>
             </tbody>

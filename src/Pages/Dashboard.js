@@ -18,8 +18,9 @@
 
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Row, Col, Button, Container } from "react-bootstrap";
+import { Row, Col, Button, Container, Nav } from "react-bootstrap";
 import "../App.css";
+
 export default function Dashboard() {
   return (
     <div>
@@ -29,8 +30,8 @@ export default function Dashboard() {
           <Col
             sm={9}
             style={{
-              marginLeft: "-50px",
-              marginTop: "-830px",
+              marginLeft: "-70px",
+              marginTop: "-810px",
               backgroundColor: "white",
             }}
           >
@@ -48,41 +49,73 @@ export default function Dashboard() {
               <Col>
                 <div className="right1">
                   <div className="head1">
-                    <div className="head11">
+                    <div className="head11" style={{ display: "flex" }}>
                       <h5>Applications - Recent</h5>
 
-                      <div className="button1">
-                        <Button variant="info" className="but1">
-                          View All
+                      <div className="button1" style={{ display: "flex" }}>
+                        <Button
+                          variant="info"
+                          s
+                          style={{ marginLeft: "200px" }}
+                        >
+                          <Nav.Link href="/Applications">ViewAll</Nav.Link>
+                          {/* View All */}
                         </Button>
                         {/* <div class="container">
                         <h1 style="text-align:center"></h1> */}
                       </div>
                     </div>
                     <hr></hr>
-                    <div className="head12">
+                    <div className="head12" style={{ display: "flex" }}>
                       <h6>Application Name</h6>
-                      <div className="button2">
-                        <Button variant="outline-secondary" className="but2">
-                          Edit
+                      <div className="button2" style={{ marginLeft: "260px" }}>
+                        <Button
+                          variant="outline-secondary"
+                          className="but2"
+                          style={{ paddingLeft: "20px", paddingRight: "25px" }}
+                        >
+                          <a
+                            href="/AddNew1"
+                            style={{ color: "grey", textDecoration: "none" }}
+                          >
+                            Edit
+                          </a>
                         </Button>
                       </div>
                     </div>
                     <hr></hr>
-                    <div className="head12">
+                    <div className="head12" style={{ display: "flex" }}>
                       <h6>Application Name</h6>
-                      <div className="button3">
-                        <Button variant="outline-secondary" className="but3">
-                          Edit
+                      <div className="button3" style={{ marginLeft: "260px" }}>
+                        <Button
+                          variant="outline-secondary"
+                          className="but3"
+                          style={{ paddingLeft: "20px", paddingRight: "25px" }}
+                        >
+                          <a
+                            href="/AddNew1"
+                            style={{ color: "grey", textDecoration: "none" }}
+                          >
+                            Edit
+                          </a>
                         </Button>
                       </div>
                     </div>
                     <hr></hr>
-                    <div className="head13">
+                    <div className="head13" style={{ display: "flex" }}>
                       <h6>Application Name</h6>
-                      <div className="button4">
-                        <Button variant="outline-secondary" className="but4">
-                          Edit
+                      <div className="button4" style={{ marginLeft: "260px" }}>
+                        <Button
+                          variant="outline-secondary"
+                          className="but4"
+                          style={{ paddingLeft: "20px", paddingRight: "25px" }}
+                        >
+                          <a
+                            href="/AddNew1"
+                            style={{ color: "grey", textDecoration: "none" }}
+                          >
+                            Edit
+                          </a>
                         </Button>
                       </div>
                     </div>
@@ -92,38 +125,74 @@ export default function Dashboard() {
 
                 <div className="right2">
                   <div className="head1">
-                    <div className="head11">
+                    <div className="head11" style={{ display: "flex" }}>
                       <h5>Authentication Providers - Recent</h5>
                       <div className="button1">
-                        <Button variant="info" className="but1">
-                          View All
+                        <Button
+                          variant="info"
+                          className="but1"
+                          style={{ marginLeft: "85px" }}
+                        >
+                          <Nav.Link href="/AuthenticationProviders">
+                            ViewAll
+                          </Nav.Link>
                         </Button>
                       </div>
                     </div>
                     <hr></hr>
-                    <div className="head12">
+                    <div className="head12" style={{ display: "flex" }}>
                       <h6>Authentication Provider Name</h6>
-                      <div className="button2">
-                        <Button variant="outline-secondary" className="but2">
-                          Edit
+                      <div className="button2" style={{ marginLeft: "180px" }}>
+                        <Button
+                          variant="outline-secondary"
+                          className="but2"
+                          style={{ paddingLeft: "20px", paddingRight: "25px" }}
+                        >
+                          <a
+                            href="/AddNew3"
+                            style={{
+                              textDecoration: "none",
+                              color: "grey",
+                            }}
+                          >
+                            Edit
+                          </a>
                         </Button>
                       </div>
                     </div>
                     <hr></hr>
-                    <div className="head12">
+                    <div className="head12" style={{ display: "flex" }}>
                       <h6>Authentication Provider Name</h6>
-                      <div className="button3">
-                        <Button variant="outline-secondary" className="but3">
-                          Edit
+                      <div className="button3" style={{ marginLeft: "180px" }}>
+                        <Button
+                          variant="outline-secondary"
+                          className="but3"
+                          style={{ paddingLeft: "20px", paddingRight: "25px" }}
+                        >
+                          <a
+                            href="/AddNew3"
+                            style={{ color: "grey", textDecoration: "none" }}
+                          >
+                            Edit
+                          </a>
                         </Button>
                       </div>
                     </div>
                     <hr></hr>
-                    <div className="head13">
+                    <div className="head13" style={{ display: "flex" }}>
                       <h6>Authentication Provider Name</h6>
-                      <div className="button4">
-                        <Button variant="outline-secondary" className="but4">
-                          Edit
+                      <div className="button4" style={{ marginLeft: "180px" }}>
+                        <Button
+                          variant="outline-secondary"
+                          className="but4"
+                          style={{ paddingLeft: "20px", paddingRight: "25px" }}
+                        >
+                          <a
+                            href="/AddNew3"
+                            style={{ color: "grey", textDecoration: "none" }}
+                          >
+                            Edit
+                          </a>
                         </Button>
                       </div>
                     </div>
@@ -134,38 +203,69 @@ export default function Dashboard() {
               <Col>
                 <div className="right3">
                   <div className="head2">
-                    <div className="head21">
+                    <div className="head21" style={{ display: "flex" }}>
                       <h5>Shopify Stores - Recent</h5>
                       <div className="button5">
-                        <Button variant="info" className="but5">
-                          View All
+                        <Button
+                          variant="info"
+                          className="but5"
+                          style={{ marginLeft: "170px" }}
+                        >
+                          <Nav.Link href="/Shopifystores">ViewAll</Nav.Link>
                         </Button>
                       </div>
                     </div>
                     <hr></hr>
-                    <div className="head22">
+                    <div className="head22" style={{ display: "flex" }}>
                       <h6>Store Name</h6>
-                      <div className="button6">
-                        <Button variant="outline-secondary" className="but6">
-                          Edit
+                      <div className="button6" style={{ marginLeft: "300px" }}>
+                        <Button
+                          variant="outline-secondary"
+                          className="but6"
+                          style={{ paddingLeft: "20px", paddingRight: "25px" }}
+                        >
+                          <a
+                            href="/AddNew2"
+                            style={{ color: "grey", textDecoration: "none" }}
+                          >
+                            Edit
+                          </a>
                         </Button>
                       </div>
                     </div>
                     <hr></hr>
-                    <div className="head23">
+                    <div className="head23" style={{ display: "flex" }}>
                       <h6>Store Name</h6>
-                      <div className="button7">
-                        <Button variant="outline-secondary" className="but7">
-                          Edit
+                      <div className="button7" style={{ marginLeft: "300px" }}>
+                        <Button
+                          variant="outline-secondary"
+                          className="but7"
+                          style={{ paddingLeft: "20px", paddingRight: "25px" }}
+                        >
+                          <a
+                            href="/AddNew2"
+                            style={{ color: "grey", textDecoration: "none" }}
+                          >
+                            Edit
+                          </a>
                         </Button>
                       </div>
                     </div>
                     <hr></hr>
-                    <div className="head24">
+                    <div className="head24" style={{ display: "flex" }}>
                       <h6>Store Name</h6>
-                      <div className="button8">
-                        <Button variant="outline-secondary" className="but8">
-                          Edit
+                      <div className="button8" style={{ marginLeft: "300px" }}>
+                        <Button
+                          variant="outline-secondary"
+                          className="but8"
+                          style={{ paddingLeft: "20px", paddingRight: "25px" }}
+                        >
+                          <a
+                            href="/AddNew2"
+                            style={{ color: "grey", textDecoration: "none" }}
+                          >
+                            Edit
+                          </a>
                         </Button>
                       </div>
                     </div>
@@ -175,38 +275,69 @@ export default function Dashboard() {
 
                 <div className="right4">
                   <div className="head2">
-                    <div className="head21">
+                    <div className="head21" style={{ display: "flex" }}>
                       <h5>Providers - Recent</h5>
                       <div className="button5">
-                        <Button variant="info" className="but5">
-                          View All
+                        <Button
+                          variant="info"
+                          className="but5"
+                          style={{ marginLeft: "220px" }}
+                        >
+                          <Nav.Link href="/Providers">ViewAll</Nav.Link>
                         </Button>
                       </div>
                     </div>
                     <hr></hr>
-                    <div className="head22">
+                    <div className="head22" style={{ display: "flex" }}>
                       <h6>Provider Name</h6>
-                      <div className="button6">
-                        <Button variant="outline-secondary" className="but6">
-                          Edit
+                      <div className="button6" style={{ marginLeft: "280px" }}>
+                        <Button
+                          variant="outline-secondary"
+                          className="but9"
+                          style={{ paddingLeft: "20px", paddingRight: "25px" }}
+                        >
+                          <a
+                            href="/AddNew4"
+                            style={{ color: "grey", textDecoration: "none" }}
+                          >
+                            Edit
+                          </a>
                         </Button>
                       </div>
                     </div>
                     <hr></hr>
-                    <div className="head23">
+                    <div className="head23" style={{ display: "flex" }}>
                       <h6>Provider Name</h6>
-                      <div className="button7">
-                        <Button variant="outline-secondary" className="but7">
-                          Edit
+                      <div className="button10" style={{ marginLeft: "280px" }}>
+                        <Button
+                          variant="outline-secondary"
+                          className="but7"
+                          style={{ paddingLeft: "20px", paddingRight: "25px" }}
+                        >
+                          <a
+                            href="/AddNew4"
+                            style={{ color: "grey", textDecoration: "none" }}
+                          >
+                            Edit
+                          </a>
                         </Button>
                       </div>
                     </div>
                     <hr></hr>
-                    <div className="head24">
+                    <div className="head24" style={{ display: "flex" }}>
                       <h6>Provider Name</h6>
-                      <div className="button8">
-                        <Button variant="outline-secondary" className="but8">
-                          Edit
+                      <div className="button11" style={{ marginLeft: "280px" }}>
+                        <Button
+                          variant="outline-secondary"
+                          className="but8"
+                          style={{ paddingLeft: "20px", paddingRight: "25px" }}
+                        >
+                          <a
+                            href="/AddNew4"
+                            style={{ color: "grey", textDecoration: "none" }}
+                          >
+                            Edit
+                          </a>
                         </Button>
                       </div>
                     </div>
