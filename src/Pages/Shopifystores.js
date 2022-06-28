@@ -49,7 +49,7 @@ export default function Shopify() {
   useEffect(() => {
     const val = async () => {
       const response = await axios.post(
-        "http://localhost:9000/shopifystores/getByname",
+        "https://auth-x.herokuapp.com/shopifystores/getByname",
         value
       );
       setShopifystoresData((previous) => ({
@@ -64,7 +64,7 @@ export default function Shopify() {
     setTimeout(() => {
       axios
         .get(
-          `http://localhost:9000/shopifystores/${pagination.limit}/${pagination.skip}`
+          `https://auth-x.herokuapp.com/shopifystores/${pagination.limit}/${pagination.skip}`
         )
 
         .then((res) => {

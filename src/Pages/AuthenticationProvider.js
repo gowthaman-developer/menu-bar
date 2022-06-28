@@ -48,7 +48,7 @@ export default function Authentication() {
   useEffect(() => {
     const val = async () => {
       const response = await axios.post(
-        "http://localhost:9000/authenticationproviders/getByname",
+        "https://auth-x.herokuapp.com/authenticationproviders/getByname",
         value
       );
       setauthenticationproviderData((previous) => ({
@@ -63,7 +63,7 @@ export default function Authentication() {
     setTimeout(() => {
       axios
         .get(
-          `http://localhost:9000/authenticationproviders/${pagination.limit}/${pagination.skip}`
+          `https://auth-x.herokuapp.com/authenticationproviders/${pagination.limit}/${pagination.skip}`
         )
 
         .then((res) => {

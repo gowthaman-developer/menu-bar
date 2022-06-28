@@ -47,7 +47,7 @@ export default function Providers() {
   useEffect(() => {
     const val = async () => {
       const response = await axios.post(
-        "http://localhost:9000/providers/getByname",
+        "https://auth-x.herokuapp.com/providers/getByname",
         value
       );
       setprovidersData((previous) => ({
@@ -62,7 +62,7 @@ export default function Providers() {
     setTimeout(() => {
       axios
         .get(
-          `http://localhost:9000/providers/${pagination.limit}/${pagination.skip}`
+          `https://auth-x.herokuapp.com/${pagination.limit}/${pagination.skip}`
         )
 
         .then((res) => {

@@ -45,7 +45,7 @@ export default function Applications() {
   useEffect(() => {
     const val = async () => {
       const response = await axios.post(
-        "http://localhost:9000/Application/getByname",
+        "https://auth-x.herokuapp.com/Application/getByname",
         value
       );
       setApplicationData((previous) => ({
@@ -60,7 +60,7 @@ export default function Applications() {
     setTimeout(() => {
       axios
         .get(
-          `http://localhost:9000/application/${pagination.limit}/${pagination.skip}`
+          `https://auth-x.herokuapp.com/application/${pagination.limit}/${pagination.skip}`
         )
 
         .then((res) => {
