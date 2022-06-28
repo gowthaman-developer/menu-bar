@@ -1,37 +1,212 @@
-import React from "react";
-import { Row, Col, Container, Button, Table } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import {
+  Row,
+  Col,
+  Container,
+  Button,
+  Table,
+  InputGroup,
+  FormControl,
+} from "react-bootstrap";
 import { FaShopify } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import Spinner from "react-bootstrap/Spinner";
+
 // import "../css/Shopify.css";
 export default function Shopify() {
+  const navigate = useNavigate();
+  const [pagination, setPagination] = useState({ limit: 6, skip: 0 });
+  const [ShopifystoresData, setShopifystoresData] = useState({
+    count: "",
+    value: "",
+  });
+  const [isLoading, setLoading] = useState(false);
+  const [value, setValue] = useState({ name: "" });
+  const [buttonDis, setButtonDis] = useState(false);
+  const [nextButtonDis, setNextButtonDis] = useState(true);
+  const [number, setNumber] = useState(1);
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     const ShopifystoresValue = axios
+  //       .get("http://localhost:9000/shopifystores")
+  //       .then((response) => {
+  //         setShopifystoresData(response.data);
+  //         setLoading(true);
+  //         console.log(response.data);
+  //       });
+  //   }, 1000);
+  // }, []);
+  const searchHandler = (event) => {
+    setValue((previous) => ({
+      ...previous,
+      name: event.target.value,
+    }));
+  };
+  useEffect(() => {
+    const val = async () => {
+      const response = await axios.post(
+        "http://localhost:9000/shopifystores/getByname",
+        value
+      );
+      setShopifystoresData((previous) => ({
+        ...previous,
+        value: response.data,
+      }));
+    };
+    val();
+  }, [value]);
+  console.log("ShopifystoresData");
+  useEffect(() => {
+    setTimeout(() => {
+      axios
+        .get(
+          `http://localhost:9000/shopifystores/${pagination.limit}/${pagination.skip}`
+        )
+
+        .then((res) => {
+          console.log(res.data);
+
+          setShopifystoresData({
+            count: res.data.count,
+            value: res.data.value,
+          });
+
+          setLoading(true);
+        })
+
+        .catch((err) => {
+          console.log(err);
+        });
+    }, 800);
+
+    if (pagination.skip / 6 === 0) {
+      setButtonDis(true);
+    } else {
+      setButtonDis(false);
+    }
+
+    if (pagination.skip / 6 + 1 === Math.ceil(ShopifystoresData.count / 6)) {
+      setNextButtonDis(true);
+    } else {
+      setNextButtonDis(false);
+    }
+  }, [pagination]);
+  const pageNumber = [];
+
+  for (
+    let i = 1;
+    i <= Math.ceil(ShopifystoresData.count / pagination.limit);
+    i++
+  ) {
+    pageNumber.push(i);
+  }
+
+  if (ShopifystoresData.value.length > 6) {
+    const sea = ShopifystoresData.value.slice(0, 6);
+
+    setShopifystoresData((previous) => ({
+      ...previous,
+      value: sea,
+    }));
+  }
+
+  const ChangePage = (pageNumber) => {
+    setNumber(pageNumber);
+
+    setPagination((previous) => ({
+      ...previous,
+      skip: pagination.limit * (pageNumber - 1),
+    }));
+  };
+  const onPreviousPageHandler = () => {
+    console.log(pagination.skip / 6);
+
+    setPagination((previous) => ({
+      ...previous,
+      skip: pagination.limit * (pagination.skip / 6 - 1),
+    }));
+  };
+
+  const onNextPageHandler = () => {
+    console.log(pagination.skip / 6);
+
+    setPagination((previous) => ({
+      ...previous,
+      skip: pagination.limit * (pagination.skip / 6 + 1),
+    }));
+  };
+
   return (
-    <div>
-      <Container>
-        <Row>
-          <Col sm={3}></Col>
-          <Col
-            sm={9}
-            style={{
-              marginTop: "-800px",
-              marginLeft: "-48px",
-              backgroundColor: "white",
-            }}
+    <div style={{ backgroundColor: "white" }}>
+      <Row>
+        <Col sm={3} style={{ backgroundColor: "white" }}></Col>
+        <Col
+          sm={8}
+          style={{
+            marginTop: "-790px",
+            marginLeft: "-11px",
+            backgroundColor: "white",
+          }}
+        >
+          <div
+            className="authentication"
+            style={{ backgroundColor: "white", display: "flex" }}
           >
-            <div className="shopify" style={{ marginTop: "10px" }}>
+            <div style={{ flexGrow: "1" }}>
               <h2 style={{ fontWeight: "normal" }}>
                 <FaShopify
                   color="#B6B6B6"
                   fontSize="40px"
-                  style={{ marginRight: "20px" }}
+                  style={{
+                    marginRight: "20px",
+                    marginTop: "-7px",
+                  }}
                 />
-                Shopify Stores{"  "}
+                Shopify Stores{" "}
                 <Button variant="info" className="appbtn">
-                  Add New
+                  <a
+                    href="/editShop/newData"
+                    style={{ color: "black", textDecoration: "none" }}
+                  >
+                    AddNew
+                  </a>
                 </Button>
               </h2>
-
-              <hr></hr>
             </div>
-            <Table responsive="lg">
+            <div className="justify-content-end">
+              <InputGroup className="mb-3">
+                <FormControl
+                  placeholder="Search"
+                  aria-label="Recipient's username"
+                  aria-describedby="basic-addon2"
+                  onChange={searchHandler}
+                />
+                <Button variant="dark" bg="light" id="button-addon2">
+                  <FaSearch />
+                </Button>
+              </InputGroup>
+            </div>
+          </div>
+          <hr
+            style={{
+              backgroundColor: "grey",
+              height: "0.5%",
+            }}
+          ></hr>
+          {!isLoading ? (
+            <>
+              <center>
+                <Spinner animation="border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </Spinner>
+              </center>
+            </>
+          ) : (
+            <Table style={{ backgroundColor: "white" }}>
               <thead>
                 <tr>
                   <th>Name</th>
@@ -41,101 +216,85 @@ export default function Shopify() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Store Name</td>
-                  <td>8891</td>
-                  <td>Secret</td>
-                  <td>
-                    <Button variant="outline-secondary">
-                      <a
-                        href="/AddNew2"
-                        style={{ color: "grey", textDecoration: "none" }}
+                {ShopifystoresData.value.map((value) => {
+                  return (
+                    <tr key={value._id}>
+                      <td
+                        className="textbold"
+                        onClick={() => {
+                          navigate(`/AddNew7/${value._id}`, { state: value });
+                        }}
                       >
-                        Edit
-                      </a>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Store Name</td>
-                  <td>8891</td>
-                  <td>Secret</td>
-                  <td>
-                    <Button variant="outline-secondary">
-                      <a
-                        href="/AddNew2"
-                        style={{ color: "grey", textDecoration: "none" }}
+                        {value.name}
+                      </td>
+                      <td
+                        onClick={() => {
+                          navigate(`/AddNew7/${value._id}`, { state: value });
+                        }}
                       >
-                        Edit
-                      </a>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Store Name</td>
-                  <td>8891</td>
-                  <td>Secret</td>
-                  <td>
-                    <Button variant="outline-secondary">
-                      <a
-                        href="/AddNew2"
-                        style={{ color: "grey", textDecoration: "none" }}
+                        {value._id}
+                      </td>
+                      <td
+                        onClick={() => {
+                          navigate(`/AddNew7/${value._id}`, { state: value });
+                        }}
                       >
-                        Edit
-                      </a>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Store Name</td>
-                  <td>8891</td>
-                  <td>Secret</td>
-                  <td>
-                    <Button variant="outline-secondary">
-                      <a
-                        href="/AddNew2"
-                        style={{ color: "grey", textDecoration: "none" }}
-                      >
-                        Edit
-                      </a>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Store Name</td>
-                  <td>8891</td>
-                  <td>Secret</td>
-                  <td>
-                    <Button variant="outline-secondary">
-                      <a
-                        href="/AddNew2"
-                        style={{ color: "grey", textDecoration: "none" }}
-                      >
-                        Edit
-                      </a>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Store Name</td>
-                  <td>8891</td>
-                  <td>Secret</td>
-                  <td>
-                    <Button variant="outline-secondary">
-                      <a
-                        href="/AddNew2"
-                        style={{ color: "grey", textDecoration: "none" }}
-                      >
-                        Edit
-                      </a>
-                    </Button>
-                  </td>
-                </tr>
+                        {value.secret}
+                      </td>
+
+                      <td>
+                        <Button variant="outline-secondary">
+                          <Link
+                            to={`/editShop/${value._id}`}
+                            style={{ color: "grey", textDecoration: "none" }}
+                          >
+                            Edit
+                          </Link>
+                        </Button>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </Table>
-          </Col>
-        </Row>
-      </Container>
+          )}
+        </Col>
+      </Row>
+      <div className="text-center" style={{ marginTop: "-200px" }}>
+        <button
+          className="px-3 py-2 m-1 text-center"
+          style={{ backgroundColor: "#66D6FF", border: "none" }}
+          onClick={onPreviousPageHandler}
+          disabled={buttonDis}
+        >
+          Previous
+        </button>
+
+        {pageNumber.map((Elem) => {
+          return (
+            <>
+              <button
+                className="px-3 py-2 m-1 text-center btn-outline-dark"
+                style={{ border: "none" }}
+                onClick={() => ChangePage(Elem)}
+              >
+                {Elem}
+              </button>
+            </>
+          );
+        })}
+
+        <button
+          className="px-3 py-2 m-1 text-center"
+          style={{ backgroundColor: "#66D6FF", border: "none" }}
+          onClick={onNextPageHandler}
+          disabled={nextButtonDis}
+        >
+          Next
+        </button>
+      </div>
+
+      {/* </Container> */}
     </div>
   );
 }

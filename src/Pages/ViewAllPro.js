@@ -1,7 +1,9 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 import { AiOutlineLogout } from "react-icons/ai";
 export default function ViewAllPro() {
+  const { state } = useLocation();
   return (
     <div>
       <Row style={{ marginTop: "30px" }}>
@@ -34,7 +36,7 @@ export default function ViewAllPro() {
                 className="shop1-sub"
                 style={{ color: "rgb(157, 160, 160)", marginTop: "10px" }}
               >
-                <h5 style={{ fontWeight: "normal" }}>Store Name</h5>
+                <h5>{state.username}</h5>
               </div>
             </Col>
             <Col>
@@ -47,7 +49,7 @@ export default function ViewAllPro() {
                 className="shop2-sub"
                 style={{ color: "rgb(157, 160, 160)", marginTop: "10px" }}
               >
-                <h5 style={{ fontWeight: "normal" }}>8891</h5>
+                <h5>{state._id}</h5>
               </div>
             </Col>
           </Row>
@@ -55,15 +57,13 @@ export default function ViewAllPro() {
           <Row style={{ marginTop: "30px", backgroundColor: "white" }}>
             <Col>
               <div className="shop3">
-                <h5 className="shop31" style={{ fontWeight: "bold" }}>
-                  Provider ID
-                </h5>
+                <h5>{state.name}</h5>
               </div>
               <div
                 className="shop3-sub"
                 style={{ color: "rgb(157, 160, 160)", marginTop: "10px" }}
               >
-                <h5 style={{ fontWeight: "normal" }}>8891</h5>
+                {/* <h5>{state._id}</h5> */}
               </div>
             </Col>
           </Row>

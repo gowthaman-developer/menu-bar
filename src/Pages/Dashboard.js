@@ -43,7 +43,12 @@ export default function Dashboard() {
                 />
                 Dashboard
               </h2>
-              <hr></hr>
+              <hr
+                style={{
+                  backgroundColor: "grey",
+                  height: 2,
+                }}
+              ></hr>
             </div>
             <Row style={{ backgroundColor: "white" }} xs={3} md={2} lg={8}>
               <Col>
@@ -53,12 +58,13 @@ export default function Dashboard() {
                       <h5>Applications - Recent</h5>
 
                       <div className="button1" style={{ display: "flex" }}>
-                        <Button
-                          variant="info"
-                          s
-                          style={{ marginLeft: "200px" }}
-                        >
-                          <Nav.Link href="/Applications">ViewAll</Nav.Link>
+                        <Button variant="info" style={{ marginLeft: "200px" }}>
+                          <a
+                            href="/Applications"
+                            style={{ color: "black", textDecoration: "none" }}
+                          >
+                            ViewAll
+                          </a>
                           {/* View All */}
                         </Button>
                         {/* <div class="container">
@@ -76,7 +82,10 @@ export default function Dashboard() {
                         >
                           <a
                             href="/AddNew1"
-                            style={{ color: "grey", textDecoration: "none" }}
+                            style={{
+                              color: "black",
+                              textDecoration: "none",
+                            }}
                           >
                             Edit
                           </a>
@@ -94,7 +103,7 @@ export default function Dashboard() {
                         >
                           <a
                             href="/AddNew1"
-                            style={{ color: "grey", textDecoration: "none" }}
+                            style={{ color: "black", textDecoration: "none" }}
                           >
                             Edit
                           </a>
@@ -112,7 +121,7 @@ export default function Dashboard() {
                         >
                           <a
                             href="/AddNew1"
-                            style={{ color: "grey", textDecoration: "none" }}
+                            style={{ color: "black", textDecoration: "none" }}
                           >
                             Edit
                           </a>
@@ -133,9 +142,12 @@ export default function Dashboard() {
                           className="but1"
                           style={{ marginLeft: "85px" }}
                         >
-                          <Nav.Link href="/AuthenticationProviders">
+                          <a
+                            href="/AuthenticationProvider"
+                            style={{ color: "black", textDecoration: "none" }}
+                          >
                             ViewAll
-                          </Nav.Link>
+                          </a>
                         </Button>
                       </div>
                     </div>
@@ -152,7 +164,7 @@ export default function Dashboard() {
                             href="/AddNew3"
                             style={{
                               textDecoration: "none",
-                              color: "grey",
+                              color: "black",
                             }}
                           >
                             Edit
@@ -171,7 +183,7 @@ export default function Dashboard() {
                         >
                           <a
                             href="/AddNew3"
-                            style={{ color: "grey", textDecoration: "none" }}
+                            style={{ color: "black", textDecoration: "none" }}
                           >
                             Edit
                           </a>
@@ -189,7 +201,7 @@ export default function Dashboard() {
                         >
                           <a
                             href="/AddNew3"
-                            style={{ color: "grey", textDecoration: "none" }}
+                            style={{ color: "black", textDecoration: "none" }}
                           >
                             Edit
                           </a>
@@ -211,7 +223,12 @@ export default function Dashboard() {
                           className="but5"
                           style={{ marginLeft: "170px" }}
                         >
-                          <Nav.Link href="/Shopifystores">ViewAll</Nav.Link>
+                          <a
+                            href="/Shopifystores"
+                            style={{ color: "black", textDecoration: "none" }}
+                          >
+                            ViewAll
+                          </a>
                         </Button>
                       </div>
                     </div>
@@ -226,7 +243,7 @@ export default function Dashboard() {
                         >
                           <a
                             href="/AddNew2"
-                            style={{ color: "grey", textDecoration: "none" }}
+                            style={{ color: "black", textDecoration: "none" }}
                           >
                             Edit
                           </a>
@@ -244,7 +261,7 @@ export default function Dashboard() {
                         >
                           <a
                             href="/AddNew2"
-                            style={{ color: "grey", textDecoration: "none" }}
+                            style={{ color: "black", textDecoration: "none" }}
                           >
                             Edit
                           </a>
@@ -262,7 +279,7 @@ export default function Dashboard() {
                         >
                           <a
                             href="/AddNew2"
-                            style={{ color: "grey", textDecoration: "none" }}
+                            style={{ color: "black", textDecoration: "none" }}
                           >
                             Edit
                           </a>
@@ -283,7 +300,12 @@ export default function Dashboard() {
                           className="but5"
                           style={{ marginLeft: "220px" }}
                         >
-                          <Nav.Link href="/Providers">ViewAll</Nav.Link>
+                          <a
+                            href="/Providers"
+                            style={{ color: "black", textDecoration: "none" }}
+                          >
+                            ViewAll
+                          </a>
                         </Button>
                       </div>
                     </div>
@@ -298,7 +320,7 @@ export default function Dashboard() {
                         >
                           <a
                             href="/AddNew4"
-                            style={{ color: "grey", textDecoration: "none" }}
+                            style={{ color: "black", textDecoration: "none" }}
                           >
                             Edit
                           </a>
@@ -316,7 +338,7 @@ export default function Dashboard() {
                         >
                           <a
                             href="/AddNew4"
-                            style={{ color: "grey", textDecoration: "none" }}
+                            style={{ color: "black", textDecoration: "none" }}
                           >
                             Edit
                           </a>
@@ -334,7 +356,7 @@ export default function Dashboard() {
                         >
                           <a
                             href="/AddNew4"
-                            style={{ color: "grey", textDecoration: "none" }}
+                            style={{ color: "black", textDecoration: "none" }}
                           >
                             Edit
                           </a>

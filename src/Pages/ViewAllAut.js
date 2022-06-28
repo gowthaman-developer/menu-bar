@@ -1,8 +1,11 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 // import "../css/ViewallAuth.css";
 import { IoIosLock } from "react-icons/io";
 export default function ViewAllAut() {
+  const { state } = useLocation();
+  console.log(state);
   return (
     <div>
       <Row>
@@ -39,14 +42,14 @@ export default function ViewAllAut() {
             <Col>
               <div className="au1">Name</div>
               <div className="au1-sub">
-                <h5 style={{ fontWeight: "normal" }}>Application Name</h5>
+                <h5>{state.name}</h5>
               </div>
               <hr className="auhr"></hr>
             </Col>
             <Col>
               <div className="au2">ID</div>
               <div className="au2-sub">
-                <h5 style={{ fontWeight: "normal" }}>8891</h5>
+                <h5>{state._id}</h5>
               </div>
               <hr className="auhr"></hr>
             </Col>
@@ -57,14 +60,14 @@ export default function ViewAllAut() {
             <Col>
               <div className="au1">Provider ID</div>
               <div className="au1-sub">
-                <h5 style={{ fontWeight: "normal" }}>8891</h5>
+                <h5>{state.provider_id}</h5>
               </div>
               <hr className="auhr"></hr>
             </Col>
             <Col>
               <div className="au2">Client ID</div>
               <div className="au2-sub">
-                <h5 style={{ fontWeight: "normal" }}>8891</h5>
+                <h5>{state.client_id}</h5>
               </div>
               <hr className="auhr"></hr>
             </Col>
@@ -75,14 +78,14 @@ export default function ViewAllAut() {
             <Col>
               <div className="au1">Client Secret</div>
               <div className="au1-sub">
-                <h5 style={{ fontWeight: "normal" }}>8891</h5>
+                <h5>{state.client_secret}</h5>
               </div>
               <hr className="auhr"></hr>
             </Col>
             <Col>
               <div className="au2">App ID</div>
               <div className="au2-sub">
-                <h5 style={{ fontWeight: "normal" }}>8891</h5>
+                <h5>{state.app_id}</h5>
               </div>
               <hr className="auhr"></hr>
             </Col>
@@ -93,14 +96,14 @@ export default function ViewAllAut() {
             <Col>
               <div className="au1">Global</div>
               <div className="au1-sub">
-                <h5 style={{ fontWeight: "normal" }}>True</h5>
+                <h5>{state.global.toString()}</h5>
               </div>
               <hr className="auhr"></hr>
             </Col>
             <Col>
               <div className="au2">State</div>
               <div className="au2-sub">
-                <h5 style={{ fontWeight: "normal" }}>State</h5>
+                <h5>{state.state}</h5>
               </div>
               <hr className="auhr"></hr>
             </Col>

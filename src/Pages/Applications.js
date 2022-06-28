@@ -1,83 +1,208 @@
-// import React from "react";
-// import "./Pages.css";
-// import { DropdownButton, Dropdown } from "react-bootstrap";
-// function Applications() {
-//   return (
-//     <div>
-//       <h1> Applications page</h1>
-//     </div>
-//   );
-// }
-
-// export default Applications;
-
-// import React from "react";
-
-// export const Applications = () => {
-//   return (
-//     <div className="applications">
-//       <h1>Applications</h1>
-//     </div>
-//   );
-// };
-
-// export const AllApplications = () => {
-//   return (
-//     <div className="all-applications">
-//       <h1>All Applications</h1>
-//     </div>
-//   );
-// };
-
-// export const AddNewApp = () => {
-//   return (
-//     <div className="add-new-app">
-//       <h1>Add New</h1>
-//     </div>
-//   );
-// };
-
-import React from "react";
-import { Row, Col, Container, Table, Button, Form } from "react-bootstrap";
-// import Sidebar from "./Sidebar";
-// import "../js/Applications.js";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "../App.css";
+import {
+  Row,
+  Col,
+  Button,
+  Table,
+  InputGroup,
+  FormControl,
+} from "react-bootstrap";
+import { IoIosApps } from "react-icons/io";
+import { FaSearch } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import Spinner from "react-bootstrap/Spinner";
 export default function Applications() {
+  const navigate = useNavigate();
+  const [applicationData, setApplicationData] = useState({
+    count: "",
+    value: "",
+  });
+  const [isLoading, setLoading] = useState(false);
+  const [pagination, setPagination] = useState({ limit: 6, skip: 0 });
+  const [value, setValue] = useState({ name: "" });
+  const [buttonDis, setButtonDis] = useState(false);
+  const [nextButtonDis, setNextButtonDis] = useState(true);
+  const [number, setNumber] = useState(1);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     const applicationValue = axios
+  //       .get("http://localhost:9000/Application")
+  //       .then((response) => {
+  //         setApplicationData(response.data);
+  //         setLoading(true);
+  //       });
+  //   }, 1000);
+  // }, []);
+  const searchHandler = (event) => {
+    setValue((previous) => ({
+      ...previous,
+      name: event.target.value,
+    }));
+  };
+  useEffect(() => {
+    const val = async () => {
+      const response = await axios.post(
+        "http://localhost:9000/Application/getByname",
+        value
+      );
+      setApplicationData((previous) => ({
+        ...previous,
+        value: response.data,
+      }));
+    };
+    val();
+  }, [value]);
+  console.log(applicationData);
+  useEffect(() => {
+    setTimeout(() => {
+      axios
+        .get(
+          `http://localhost:9000/application/${pagination.limit}/${pagination.skip}`
+        )
+
+        .then((res) => {
+          console.log(res.data);
+
+          setApplicationData({ count: res.data.count, value: res.data.value });
+
+          setLoading(true);
+        })
+
+        .catch((err) => {
+          console.log(err);
+        });
+    }, 800);
+
+    if (pagination.skip / 6 === 0) {
+      setButtonDis(true);
+    } else {
+      setButtonDis(false);
+    }
+
+    if (pagination.skip / 6 + 1 === Math.ceil(applicationData.count / 6)) {
+      setNextButtonDis(true);
+    } else {
+      setNextButtonDis(false);
+    }
+  }, [pagination]);
+  const pageNumber = [];
+
+  for (
+    let i = 1;
+    i <= Math.ceil(applicationData.count / pagination.limit);
+    i++
+  ) {
+    pageNumber.push(i);
+  }
+
+  if (applicationData.value.length > 6) {
+    const sea = applicationData.value.slice(0, 6);
+
+    setApplicationData((previous) => ({
+      ...previous,
+      value: sea,
+    }));
+  }
+
+  const ChangePage = (pageNumber) => {
+    setNumber(pageNumber);
+
+    setPagination((previous) => ({
+      ...previous,
+      skip: pagination.limit * (pageNumber - 1),
+    }));
+  };
+  const onPreviousPageHandler = () => {
+    console.log(pagination.skip / 6);
+
+    setPagination((previous) => ({
+      ...previous,
+      skip: pagination.limit * (pagination.skip / 6 - 1),
+    }));
+  };
+
+  const onNextPageHandler = () => {
+    console.log(pagination.skip / 6);
+
+    setPagination((previous) => ({
+      ...previous,
+      skip: pagination.limit * (pagination.skip / 6 + 1),
+    }));
+  };
   return (
     <div>
-      <Container>
-        <Row>
-          <Col sm={3}></Col>
-          <Col
-            sm={9}
-            style={{
-              marginTop: "-800px",
-              marginLeft: "-50px",
-              backgroundColor: "white",
-            }}
+      <Row>
+        <Col sm={3} style={{ backgroundColor: "white" }}></Col>
+        <Col
+          sm={8}
+          style={{
+            marginTop: "-790px",
+            marginLeft: "-11px",
+            backgroundColor: "white",
+          }}
+        >
+          <div
+            className="authentication"
+            style={{ backgroundColor: "white", display: "flex" }}
           >
-            <div
-              className="applications"
-              style={{
-                marginTop: "10px",
-                marginLeft: "-10px",
-                marginBottom: "20px",
-              }}
-            >
+            <div style={{ flexGrow: "1" }}>
               <h2 style={{ fontWeight: "normal" }}>
-                <img
-                  src={require("file:///Users/gowthamganesan/Downloads/Group%20203.png")}
-                  style={{ marginRight: "20px" }}
+                <IoIosApps
+                  color="#B6B6B6"
+                  fontSize="40px"
+                  style={{
+                    marginRight: "20px",
+                    marginTop: "-7px",
+                  }}
                 />
-                Applications{"  "}
+                Applications{" "}
                 <Button variant="info" className="appbtn">
-                  Add New
+                  <a
+                    href="/add/newData"
+                    style={{ color: "black", textDecoration: "none" }}
+                  >
+                    AddNew
+                  </a>
                 </Button>
               </h2>
             </div>
-            <hr></hr>
+            <div className="justify-content-end">
+              <InputGroup className="mb-3">
+                <FormControl
+                  placeholder="Search"
+                  aria-label="Recipient's username"
+                  aria-describedby="basic-addon2"
+                  onChange={searchHandler}
+                />
+                <Button variant="dark" bg="light" id="button-addon2">
+                  <FaSearch />
+                </Button>
+              </InputGroup>
+            </div>
+          </div>
+          <hr
+            style={{
+              backgroundColor: "grey",
+              height: "0.5%",
+            }}
+          ></hr>
+          {!isLoading ? (
+            <>
+              <center>
+                <Spinner animation="border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </Spinner>
+              </center>
+            </>
+          ) : (
             <Table
-              responsive="lg"
-              style={{ marginTop: "25px", width: "970px" }}
+              style={{
+                width: "970px",
+                backgroundColor: "white",
+              }}
             >
               <thead>
                 <tr>
@@ -91,119 +216,103 @@ export default function Applications() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Application Name</td>
-                  <td>8891</td>
-                  <td>8891</td>
-                  <td>8891</td>
-                  <td>https://www.universalmusic.com</td>
-                  <td>State</td>
-                  <td>
-                    <Button variant="outline-secondary">
-                      <a
-                        href="/AddNew1"
-                        style={{ color: "grey", textDecoration: "none" }}
+                {applicationData.value.map((value) => {
+                  return (
+                    <tr key={value._id}>
+                      <td
+                        className="textbold"
+                        onClick={() => {
+                          navigate(`/AddNew5/${value._id}`, { state: value });
+                        }}
                       >
-                        Edit
-                      </a>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Application Name</td>
-                  <td>8891</td>
-                  <td>8891</td>
-                  <td>8891</td>
-                  <td>https://www.universalmusic.com</td>
-                  <td>State</td>
-                  <td>
-                    <Button variant="outline-secondary">
-                      <a
-                        href="/AddNew1"
-                        style={{ color: "grey", textDecoration: "none" }}
+                        {value.name}
+                      </td>
+                      <td
+                        onClick={() => {
+                          navigate(`/AddNew5/${value._id}`, { state: value });
+                        }}
                       >
-                        Edit
-                      </a>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Application Name</td>
-                  <td>8891</td>
-                  <td>8891</td>
-                  <td>8891</td>
-                  <td>https://www.universalmusic.com</td>
-                  <td>State</td>
-                  <td>
-                    <Button variant="outline-secondary">
-                      <a
-                        href="/AddNew1"
-                        style={{ color: "grey", textDecoration: "none" }}
+                        {value._id}
+                      </td>
+                      <td
+                        onClick={() => {
+                          navigate(`/AddNew5/${value._id}`, { state: value });
+                        }}
                       >
-                        Edit
-                      </a>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Application Name</td>
-                  <td>8891</td>
-                  <td>8891</td>
-                  <td>8891</td>
-                  <td>https://www.universalmusic.com</td>
-                  <td>State</td>
-                  <td>
-                    <Button variant="outline-secondary">
-                      <a
-                        href="/AddNew1"
-                        style={{ color: "grey", textDecoration: "none" }}
+                        {value.client_id}
+                      </td>
+                      <td
+                        onClick={() => {
+                          navigate(`/AddNew5/${value._id}`, { state: value });
+                        }}
                       >
-                        Edit
-                      </a>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Application Name</td>
-                  <td>8891</td>
-                  <td>8891</td>
-                  <td>8891</td>
-                  <td>https://www.universalmusic.com</td>
-                  <td>State</td>
-                  <td>
-                    <Button variant="outline-secondary">
-                      <a
-                        href="/AddNew1"
-                        style={{ color: "grey", textDecoration: "none" }}
+                        {value.client_secret}
+                      </td>
+                      <td
+                        onClick={() => {
+                          navigate(`/AddNew5/${value._id}`, { state: value });
+                        }}
                       >
-                        Edit
-                      </a>
-                    </Button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Application Name</td>
-                  <td>8891</td>
-                  <td>8891</td>
-                  <td>8891</td>
-                  <td>https://www.universalmusic.com</td>
-                  <td>State</td>
-                  <td>
-                    <Button variant="outline-secondary">
-                      <a
-                        href="/AddNew1"
-                        style={{ color: "grey", textDecoration: "none" }}
+                        {value.RedirectURLs}
+                      </td>
+                      <td
+                        onClick={() => {
+                          navigate(`/AddNew5/${value._id}`, { state: value });
+                        }}
                       >
-                        Edit
-                      </a>
-                    </Button>
-                  </td>
-                </tr>
+                        {value.state}
+                      </td>
+                      <td>
+                        <Button variant="outline-secondary">
+                          <Link
+                            to={`/edit/${value._id}`}
+                            style={{ color: "grey", textDecoration: "none" }}
+                          >
+                            Edit
+                          </Link>
+                        </Button>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </Table>
-          </Col>
-        </Row>
-      </Container>
+          )}
+        </Col>
+      </Row>
+      <div className="text-center" style={{ marginTop: "-200px" }}>
+        <button
+          className="px-3 py-2 m-1 text-center"
+          style={{ backgroundColor: "#66D6FF", border: "none" }}
+          onClick={onPreviousPageHandler}
+          disabled={buttonDis}
+        >
+          Previous
+        </button>
+
+        {pageNumber.map((Elem) => {
+          return (
+            <>
+              <button
+                className="px-3 py-2 m-1 text-center btn-outline-dark"
+                style={{ border: "none" }}
+                onClick={() => ChangePage(Elem)}
+              >
+                {Elem}
+              </button>
+            </>
+          );
+        })}
+
+        <button
+          className="px-3 py-2 m-1 text-center"
+          style={{ backgroundColor: "#66D6FF", border: "none" }}
+          onClick={onNextPageHandler}
+          disabled={nextButtonDis}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 }
